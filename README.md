@@ -79,9 +79,9 @@ networkInterface.with_depends_on([publicIp, vnet])
 
 # Create a parameter for the VM password and add it to the template
 vm_password_param = ARMParameter('vmPassword',
-                                 template=template,
                                  type='secureString',
                                  description='The password for the VM access. User is "adminuser"')
+template.add_parameter(vm_password_param)
 
 # Create the Virtual Machince object 
 vm = VirtualMachine('myvm',
