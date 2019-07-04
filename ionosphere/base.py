@@ -218,8 +218,7 @@ class ARMObject(AWSObject):
 
     def _add_dependency(self, dependency):
         if isinstance(dependency, ARMObject):
-            if self.template and self.template == dependency.template:
-                return dependency.Ref()
+            return dependency.Ref()
         elif isinstance(dependency, str):
             return dependency
         else:
