@@ -127,6 +127,8 @@ class ARMTemplate(object):
             t['parameters'] = self.parameters
         if self.contentVersion:
             t['contentVersion'] = self.contentVersion
+        if self.variables:
+            t['variables'] = {k: v for d in self.variables for k, v in d.items()}
 
         t['resources'] = self.resources
         t['$schema'] = "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json"
